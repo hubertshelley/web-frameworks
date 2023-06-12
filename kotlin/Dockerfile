@@ -1,20 +1,18 @@
-FROM gradle:7-jdk17 AS build
+FROM gradle:8-jdk17 AS build
 
 WORKDIR /usr/src/app
 
-USER root
-RUN chown -R gradle /usr/src/app
-USER gradle
-
-COPY . ./
+{{#files}}
+  COPY '{{source}}' '{{target}}'
+{{/files}}
 
 RUN gradle build
 
-FROM openjdk:20-ea-17-slim
+FROM eclipse-temurin:17.0.7_7-jre
 
 WORKDIR /usr/src/app
 
 COPY --from=build /usr/src/app/build/libs/server.jar /usr/src/app/build/libs/server.jar
 
-CMD java -server -XX:+UseNUMA -XX:+UseParallelGC -XX:+AlwaysPreTouch -jar /usr/src/app/build/libs/server.jar
+CMD {{command}}
 
