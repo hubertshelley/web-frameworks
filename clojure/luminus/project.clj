@@ -2,7 +2,7 @@
 
   :dependencies [[luminus/lein-template "4.51"]
                  [ch.qos.logback/logback-classic "1.5.18"]
-                 [cheshire "6.0.0"]
+                 [cheshire "6.1.0"]
                  [clojure.java-time "1.4.3"]
                  [cprop "0.1.20"]
                  [expound "0.9.0"]
@@ -15,7 +15,7 @@
                  [metosin/reitit "0.9.1"]
                  [metosin/ring-http-response "0.9.5"]
                  [mount "0.1.23"]
-                 [nrepl "1.3.1"]
+                 [nrepl "1.4.0"]
                  [org.clojure/clojure "1.12.2"]
                  [org.clojure/tools.cli "1.1.230"]
                  [org.clojure/tools.logging "1.3.0"]
